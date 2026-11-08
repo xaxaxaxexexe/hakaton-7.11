@@ -1,0 +1,101 @@
+.room-chat{position:fixed;right:24px;bottom:calc(116px + env(safe-area-inset-bottom));z-index:55;font-family:inherit;color:var(--text);width:min(370px,calc(100vw - 32px));pointer-events:none;display:flex;align-items:flex-end;flex-direction:column;gap:12px}
+.room-chat button,.room-chat input,.room-chat textarea{font:inherit}
+.room-chat-panel,.room-chat-launcher{pointer-events:auto}
+.room-chat-launcher{display:flex;align-items:center;gap:10px;padding:13px 18px;border:1px solid var(--line);background:var(--surface);border-radius:100px;color:var(--text);box-shadow:0 5px 28px #0003;font-size:12px;font-weight:700;cursor:pointer}
+.room-chat-launcher svg{color:var(--accent)}
+.room-chat-launcher:hover{border-color:var(--accent)}
+.room-chat-panel{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:0 16px 60px #0005;overflow:hidden;max-height:min(620px,calc(100dvh - 225px));display:flex;flex-direction:column;animation:room-chat-enter .18s ease-out}
+.room-chat-header{display:flex;justify-content:space-between;align-items:center;padding:17px 18px;border-bottom:1px solid var(--line);flex-shrink:0}
+.room-chat-heading{display:flex;gap:11px;align-items:center}
+.room-chat-heading h2{font-size:15px;margin:0 0 5px;letter-spacing:-.02em}
+.room-chat-mark{display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);border-radius:12px;width:38px;height:38px}
+.room-chat-presence{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
+.room-chat-name{padding:9px 18px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);flex-shrink:0}
+.room-chat-name>span{font-size:11px;color:var(--muted);white-space:nowrap}
+.room-chat-name input{border:0;outline:none;background:none;color:var(--text);width:100%;font-size:12px!important;padding:5px 0;min-width:0}
+.room-chat-name input:focus{box-shadow:0 1px 0 var(--accent)}
+.room-chat-history{overflow-y:auto;overscroll-behavior:contain;padding:18px;min-height:110px;flex:1;scrollbar-width:thin}
+.room-chat-empty{text-align:center;padding:22px 0;color:var(--muted)}
+.room-chat-empty>span{font-size:32px;display:block;margin-bottom:11px}
+.room-chat-empty strong{font-size:13px;color:var(--text)}
+.room-chat-empty p{font-size:12px;line-height:1.6;margin:8px 0}
+.room-chat-message{display:flex;gap:9px;margin-bottom:18px}
+.room-chat-message:last-child{margin-bottom:0}
+.room-chat-avatar{width:27px;height:27px;flex-shrink:0;display:grid;place-items:center;border-radius:9px;background:color-mix(in srgb,var(--avatar-color) 17%,transparent);color:var(--avatar-color);font-size:11px;font-weight:800}
+.room-chat-message-body{min-width:0;flex:1}
+.room-chat-byline{display:flex;gap:8px;align-items:baseline}
+.room-chat-byline strong{font-size:11px;max-width:180px;overflow-wrap:anywhere}
+.room-chat-byline time{font-size:9px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.room-chat-message-body>p{font-size:12px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;margin:5px 0 7px}
+.room-chat-message--own .room-chat-byline strong::after{content:' · вы';color:var(--muted);font-weight:400}
+.room-chat-reactions{display:flex;gap:5px}
+.room-chat-reactions button{background:transparent;border:1px solid var(--line);color:var(--muted);padding:3px 7px;border-radius:30px;font-size:11px;cursor:pointer;min-height:25px;display:flex;gap:5px;align-items:center}
+.room-chat-reactions button:hover{background:color-mix(in srgb,var(--accent) 12%,transparent);border-color:var(--accent)}
+.room-chat-emote{display:flex;align-items:center;gap:8px;margin:7px 0}
+.room-chat-emote img{max-width:90px;height:36px;object-fit:contain}
+.room-chat-emote small{font-size:10px;color:var(--muted)}
+.room-chat-compose{border-top:1px solid var(--line);padding:10px 12px 8px;flex-shrink:0}
+.room-chat-input{display:block}
+.room-chat-input textarea{resize:none;border:none;background:none;color:var(--text);width:100%;padding:6px 6px 0;min-height:47px;max-height:80px;outline:none;font-size:12px!important;line-height:1.5}
+.room-chat-input textarea:focus{box-shadow:0 1px 0 color-mix(in srgb,var(--accent) 40%,transparent)}
+.room-chat-compose-actions{display:flex;align-items:center;gap:7px}
+.room-chat-compose-actions>small{font-size:9px;color:var(--muted)}
+.room-chat-send{margin-left:auto;display:flex;gap:7px;align-items:center;border:0;border-radius:10px;background:var(--accent);color:#19120f;font-weight:750!important;font-size:11px!important;padding:10px 13px;cursor:pointer}
+.room-chat-send:disabled{opacity:.45;cursor:default}
+.room-chat-error{font-size:11px;color:#ff957f;line-height:1.5;margin:7px 5px 2px}
+.room-chat-footnote{text-align:center;font-size:9px;color:var(--muted);padding:0 12px 12px;flex-shrink:0}
+.room-chat-selected{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--muted);padding:4px 6px}
+.room-chat-selected img{height:25px;max-width:60px;object-fit:contain}
+.room-chat-picker{border-top:1px solid var(--line);padding:10px 14px;overflow:auto;max-height:190px;flex-shrink:0}
+.room-chat-picker-heading{display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:700;color:var(--muted);margin-bottom:4px}
+.room-chat-picker-heading a{color:var(--text)}
+.room-chat-picker-heading small{font-size:9px;font-weight:400}
+.room-chat-unicode,.room-chat-bttv{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:9px}
+.room-chat-unicode button,.room-chat-bttv button{min-width:0;height:35px;border:0;background:transparent;border-radius:7px;cursor:pointer;display:grid;place-items:center;font-size:21px!important}
+.room-chat-unicode button:hover,.room-chat-bttv button:hover{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.room-chat-bttv img{max-height:29px;max-width:42px;object-fit:contain}
+.room-chat .icon-button{min-width:32px;min-height:32px}
+.room-chat button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+[data-theme=light] .room-chat-panel{box-shadow:0 16px 50px #493b2426}
+[data-theme=light] .room-chat-avatar{color:color-mix(in srgb,var(--avatar-color) 55%,#000)}
+[data-theme=light] .room-chat-error{color:#b42d17}
+@keyframes room-chat-enter{from{transform:translateY(8px);opacity:0}
+to{transform:translateY(0);opacity:1}
+}
+@media(max-width:600px){.room-chat{right:12px;bottom:calc(110px + env(safe-area-inset-bottom));width:calc(100vw - 24px);gap:8px}
+.room-chat-launcher{padding:10px 14px}
+.room-chat-panel{max-height:calc(100dvh - 215px)}
+.room-chat-header{padding:13px 14px}
+.room-chat-history{padding:14px;min-height:85px}
+.room-chat-reactions button{min-height:32px;padding:4px 9px}
+.room-chat-name input,.room-chat-input textarea{font-size:16px!important}
+.room-chat-picker{max-height:150px}
+}
+@media(prefers-reduced-motion:reduce){.room-chat-panel{animation:none}
+}
+
+
+/* A reserved desktop rail keeps chat beside the auditorium, never over the seats. */
+@media (min-width:1200px) {
+  .session-v2:has(.room-chat--open) { width:calc(100% - 388px); max-width:1600px; margin-left:24px; margin-right:364px; }
+  .room-chat { right:16px; top:110px; bottom:20px; width:328px; justify-content:center; }
+  .room-chat-panel { height:100%; max-height:none; border-radius:16px; box-shadow:0 8px 30px #0002; }
+  .room-chat--open .room-chat-launcher { display:none; }
+  .room-chat:not(.room-chat--open) { width:auto; top:150px; bottom:auto; }
+  .room-chat:not(.room-chat--open) .room-chat-launcher { border-radius:12px; }
+  .session-v2:has(.room-chat--open) .booking-layout { grid-template-columns:minmax(0,1fr) 250px; gap:16px; }
+  .session-v2:has(.room-chat--open) .hall-camera-bar button { padding-inline:10px; }
+  .session-v2:has(.room-chat--open) .hall-panel-head { flex-wrap:wrap; gap:10px; }
+}
+@media (max-width:1199px) {
+  .room-chat--open { top:90px; bottom:calc(102px + env(safe-area-inset-bottom)); }
+  .room-chat--open .room-chat-panel { height:100%; max-height:none; }
+  .room-chat--open .room-chat-launcher { display:none; }
+}
+.room-chat .icon-button { min-width:40px; min-height:40px; }
+.room-chat-history { scrollbar-gutter:stable; }
+@media(max-height:550px) and (max-width:1199px) {
+  .room-chat--open { top:8px; bottom:8px; }
+  .room-chat-footnote { display:none; }
+  .room-chat-header { padding-block:5px; }
+}

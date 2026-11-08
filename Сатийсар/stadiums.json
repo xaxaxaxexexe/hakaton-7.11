@@ -1,0 +1,386 @@
+{
+ "clubs": [
+  {
+   "id": "zvezda",
+   "name": "Северная Звезда",
+   "short": "ЗВЗ",
+   "color": "#2e7dd7"
+  },
+  {
+   "id": "volzhane",
+   "name": "Волжане",
+   "short": "ВОЛ",
+   "color": "#d23c3c"
+  },
+  {
+   "id": "priboy",
+   "name": "Прибой",
+   "short": "ПРБ",
+   "color": "#12a5a5"
+  },
+  {
+   "id": "atlant",
+   "name": "Атлант",
+   "short": "АТЛ",
+   "color": "#f2b705"
+  },
+  {
+   "id": "granit",
+   "name": "Гранит",
+   "short": "ГРН",
+   "color": "#8a94a6"
+  },
+  {
+   "id": "kvarts",
+   "name": "Кварц",
+   "short": "КВЦ",
+   "color": "#8b5cf6"
+  },
+  {
+   "id": "rassvet",
+   "name": "Рассвет",
+   "short": "РСВ",
+   "color": "#f97316"
+  }
+ ],
+ "stadiums": [
+  {
+   "id": "nevskaya",
+   "name": "Арена Невская",
+   "city": "Санкт-Петербург",
+   "address": "Санкт-Петербург, Спортивная наб., 1",
+   "lat": 59.97,
+   "lon": 30.22,
+   "home": "zvezda",
+   "rows": 10,
+   "seats_per_row": 16,
+   "boxes": 7,
+   "roof": true,
+   "setback": 5,
+   "prices": {
+    "front": 700,
+    "middle": 1200,
+    "box": 3500
+   },
+   "sectors": [
+    {
+     "code": "A",
+     "side": "north",
+     "offset": -22,
+     "price_factor": 0.9
+    },
+    {
+     "code": "B",
+     "side": "north",
+     "offset": 22,
+     "price_factor": 0.9
+    },
+    {
+     "code": "C",
+     "side": "south",
+     "offset": 0,
+     "price_factor": 1.0
+    },
+    {
+     "code": "D",
+     "side": "south",
+     "offset": -22,
+     "price_factor": 0.9
+    },
+    {
+     "code": "E",
+     "side": "south",
+     "offset": 22,
+     "price_factor": 0.9
+    },
+    {
+     "code": "F",
+     "side": "east",
+     "offset": 0,
+     "price_factor": 0.75,
+     "fan": true
+    },
+    {
+     "code": "G",
+     "side": "west",
+     "offset": 0,
+     "price_factor": 0.8
+    },
+    {
+     "code": "H",
+     "side": "north",
+     "offset": 0,
+     "price_factor": 1.0
+    }
+   ]
+  },
+  {
+   "id": "volzhsky",
+   "name": "Стадион Волжский берег",
+   "city": "Нижний Новгород",
+   "address": "Нижний Новгород, Волжская наб., 12",
+   "lat": 56.33,
+   "lon": 43.96,
+   "home": "volzhane",
+   "rows": 9,
+   "seats_per_row": 14,
+   "boxes": 6,
+   "roof": true,
+   "setback": 7,
+   "prices": {
+    "front": 550,
+    "middle": 950,
+    "box": 2800
+   },
+   "sectors": [
+    {
+     "code": "A",
+     "side": "north",
+     "offset": -16,
+     "price_factor": 0.9
+    },
+    {
+     "code": "B",
+     "side": "north",
+     "offset": 16,
+     "price_factor": 0.9
+    },
+    {
+     "code": "C",
+     "side": "south",
+     "offset": 0,
+     "price_factor": 1.0
+    },
+    {
+     "code": "D",
+     "side": "south",
+     "offset": -16,
+     "price_factor": 0.9
+    },
+    {
+     "code": "E",
+     "side": "south",
+     "offset": 16,
+     "price_factor": 0.9
+    },
+    {
+     "code": "F",
+     "side": "east",
+     "offset": 0,
+     "price_factor": 0.8
+    },
+    {
+     "code": "G",
+     "side": "west",
+     "offset": 0,
+     "price_factor": 0.75,
+     "fan": true
+    }
+   ]
+  },
+  {
+   "id": "pribrezhny",
+   "name": "Стадион Прибрежный",
+   "city": "Сочи",
+   "address": "Сочи, Олимпийский пр., 8",
+   "lat": 43.4,
+   "lon": 39.96,
+   "home": "priboy",
+   "rows": 10,
+   "seats_per_row": 12,
+   "boxes": 5,
+   "roof": false,
+   "setback": 4,
+   "prices": {
+    "front": 600,
+    "middle": 1000,
+    "box": 3000
+   },
+   "sectors": [
+    {
+     "code": "A",
+     "side": "north",
+     "offset": 0,
+     "price_factor": 0.75,
+     "fan": true
+    },
+    {
+     "code": "B",
+     "side": "south",
+     "offset": 0,
+     "price_factor": 1.0
+    },
+    {
+     "code": "C",
+     "side": "south",
+     "offset": -15,
+     "price_factor": 0.9
+    },
+    {
+     "code": "D",
+     "side": "south",
+     "offset": 15,
+     "price_factor": 0.9
+    },
+    {
+     "code": "E",
+     "side": "east",
+     "offset": 0,
+     "price_factor": 0.8
+    },
+    {
+     "code": "F",
+     "side": "west",
+     "offset": 0,
+     "price_factor": 0.8
+    }
+   ]
+  }
+ ],
+ "matches": [
+  {
+   "id": "nevskaya-1",
+   "stadium": "nevskaya",
+   "home": "zvezda",
+   "away": "volzhane",
+   "tournament": "Премьер-дивизион, 14-й тур",
+   "starts_at": "2026-11-14T19:00:00"
+  },
+  {
+   "id": "nevskaya-2",
+   "stadium": "nevskaya",
+   "home": "zvezda",
+   "away": "atlant",
+   "tournament": "Кубок страны, 1/8 финала",
+   "starts_at": "2026-12-05T19:00:00"
+  },
+  {
+   "id": "nevskaya-3",
+   "stadium": "nevskaya",
+   "home": "zvezda",
+   "away": "priboy",
+   "tournament": "Премьер-дивизион, 17-й тур",
+   "starts_at": "2026-12-26T19:00:00"
+  },
+  {
+   "id": "nevskaya-4",
+   "stadium": "nevskaya",
+   "home": "zvezda",
+   "away": "granit",
+   "tournament": "Кубок страны, 1/4 финала",
+   "starts_at": "2027-01-16T19:00:00"
+  },
+  {
+   "id": "nevskaya-5",
+   "stadium": "nevskaya",
+   "home": "zvezda",
+   "away": "kvarts",
+   "tournament": "Премьер-дивизион, 21-й тур",
+   "starts_at": "2027-02-06T19:00:00"
+  },
+  {
+   "id": "nevskaya-6",
+   "stadium": "nevskaya",
+   "home": "zvezda",
+   "away": "rassvet",
+   "tournament": "Премьер-дивизион, 25-й тур",
+   "starts_at": "2027-02-27T19:00:00"
+  },
+  {
+   "id": "volzhsky-1",
+   "stadium": "volzhsky",
+   "home": "volzhane",
+   "away": "kvarts",
+   "tournament": "Премьер-дивизион, 14-й тур",
+   "starts_at": "2026-11-16T16:30:00"
+  },
+  {
+   "id": "volzhsky-2",
+   "stadium": "volzhsky",
+   "home": "volzhane",
+   "away": "zvezda",
+   "tournament": "Кубок страны, 1/8 финала",
+   "starts_at": "2026-12-07T16:30:00"
+  },
+  {
+   "id": "volzhsky-3",
+   "stadium": "volzhsky",
+   "home": "volzhane",
+   "away": "rassvet",
+   "tournament": "Премьер-дивизион, 17-й тур",
+   "starts_at": "2026-12-28T16:30:00"
+  },
+  {
+   "id": "volzhsky-4",
+   "stadium": "volzhsky",
+   "home": "volzhane",
+   "away": "priboy",
+   "tournament": "Кубок страны, 1/4 финала",
+   "starts_at": "2027-01-18T16:30:00"
+  },
+  {
+   "id": "volzhsky-5",
+   "stadium": "volzhsky",
+   "home": "volzhane",
+   "away": "atlant",
+   "tournament": "Премьер-дивизион, 21-й тур",
+   "starts_at": "2027-02-08T16:30:00"
+  },
+  {
+   "id": "volzhsky-6",
+   "stadium": "volzhsky",
+   "home": "volzhane",
+   "away": "granit",
+   "tournament": "Премьер-дивизион, 25-й тур",
+   "starts_at": "2027-03-01T16:30:00"
+  },
+  {
+   "id": "pribrezhny-1",
+   "stadium": "pribrezhny",
+   "home": "priboy",
+   "away": "atlant",
+   "tournament": "Премьер-дивизион, 14-й тур",
+   "starts_at": "2026-11-18T14:00:00"
+  },
+  {
+   "id": "pribrezhny-2",
+   "stadium": "pribrezhny",
+   "home": "priboy",
+   "away": "rassvet",
+   "tournament": "Кубок страны, 1/8 финала",
+   "starts_at": "2026-12-09T14:00:00"
+  },
+  {
+   "id": "pribrezhny-3",
+   "stadium": "pribrezhny",
+   "home": "priboy",
+   "away": "zvezda",
+   "tournament": "Премьер-дивизион, 17-й тур",
+   "starts_at": "2026-12-30T14:00:00"
+  },
+  {
+   "id": "pribrezhny-4",
+   "stadium": "pribrezhny",
+   "home": "priboy",
+   "away": "volzhane",
+   "tournament": "Кубок страны, 1/4 финала",
+   "starts_at": "2027-01-20T14:00:00"
+  },
+  {
+   "id": "pribrezhny-5",
+   "stadium": "pribrezhny",
+   "home": "priboy",
+   "away": "granit",
+   "tournament": "Премьер-дивизион, 21-й тур",
+   "starts_at": "2027-02-10T14:00:00"
+  },
+  {
+   "id": "pribrezhny-6",
+   "stadium": "pribrezhny",
+   "home": "priboy",
+   "away": "kvarts",
+   "tournament": "Премьер-дивизион, 25-й тур",
+   "starts_at": "2027-03-03T14:00:00"
+  }
+ ]
+}

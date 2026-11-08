@@ -1,0 +1,3 @@
+.auth{display:flex;justify-content:center;padding-top:20px}.auth__form{width:100%;max-width:420px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:24px}
+.auth__error{color:var(--danger);min-height:20px;font-size:14px}.auth__alt{font-size:14px;color:var(--muted);text-align:center}
+.terms{max-width:760px;margin:auto}.terms h3{margin-top:22px}.terms p{color:var(--muted)}

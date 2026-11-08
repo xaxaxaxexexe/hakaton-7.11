@@ -1,0 +1,16 @@
+services:
+  arena:
+    build: .
+    ports:
+      - "4173:4173"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4173
+      DB_PATH: /data/arena.sqlite
+      PAYMENT_MODE: demo
+      PUBLIC_BASE_URL: http://localhost:4173
+    volumes:
+      - arena_data:/data
+    restart: unless-stopped
+volumes:
+  arena_data:

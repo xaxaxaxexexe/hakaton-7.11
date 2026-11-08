@@ -1,0 +1,11 @@
+[Unit]
+Description=Keep hosting NAT reachable for ZAL HTTP HTTPS and SSH
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/zal-nat-allow.py
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true

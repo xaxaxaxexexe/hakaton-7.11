@@ -1,0 +1,7 @@
+{
+  "name": "arena-3d",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": { "seed": "node db/seed.js", "start": "node server/index.js", "smoke": "node scripts/smoke.mjs" },
+  "dependencies": { "dotenv": "^16.4.5", "express": "^4.19.2", "mysql2": "^3.11.0", "three": "^0.170.0" }
+}

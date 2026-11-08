@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Sphera Arena — билет с видом на поле</title>
+  <meta name="description" content="Билеты на футбол с видом на поле: выберите матч и место на трибуне, посмотрите на поле в 3D с этого места и купите билет." />
+  <meta name="theme-color" content="#08140e" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2308140e'/%3E%3Crect x='16' y='26' width='68' height='48' rx='6' fill='%231fa35a'/%3E%3Cpath d='M50 26v48' stroke='%23fff' stroke-width='4'/%3E%3Ccircle cx='50' cy='50' r='10' fill='none' stroke='%23fff' stroke-width='4'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <link rel="stylesheet" href="/src/app.css" />
+</head>
+<body>
+  <a class="skip-link" href="#view">К содержимому</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Sphera Arena, на главную">
+      <span class="brand-mark"></span>
+      <span class="brand-text"><span class="brand-name">Sphera Arena</span><span class="brand-place">Билет с видом на поле</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Разделы">
+      <a href="/" data-nav="home">Матчи</a>
+      <a href="/sectors" data-nav="halls">Сектора</a>
+      <a href="/tickets" data-nav="tickets">Мои билеты</a>
+    </nav>
+    <button class="sound-btn" id="soundBtn" aria-pressed="false" title="Звук трибун">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9v6h4l5 4V5L8 9H4z"/><path class="w1" d="M16 9a4 4 0 0 1 0 6"/><path class="w2" d="M18.5 6.5a8 8 0 0 1 0 11"/></svg>
+      <span>Включить звук</span>
+    </button>
+  </header>
+  <canvas id="scene" hidden aria-label="3D-модель стадиона"></canvas>
+  <main id="view" tabindex="-1"></main>
+  <footer class="site-footer">Концепт для хакатона «Билет с видом на поле». Стадион, клубы и матчи вымышленные, оплата тестовая.</footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

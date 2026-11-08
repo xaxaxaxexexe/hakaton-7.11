@@ -1,0 +1,5 @@
+.header{display:flex;align-items:center;gap:18px;padding:12px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap;position:sticky;top:0;background:#0b120ef0;backdrop-filter:blur(8px);z-index:5}
+.header__logo{display:flex;align-items:center;gap:8px;font-size:20px;text-decoration:none;font-weight:600}.header__logo img{width:30px}.header__logo b{color:var(--hot)}
+.header__nav{display:flex;gap:6px;flex:1}.header__link{text-decoration:none;color:var(--muted);padding:6px 12px;border-radius:10px}.header__link--active{color:var(--text);background:var(--panel)}
+.header__user{display:flex;gap:8px}
+.footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}

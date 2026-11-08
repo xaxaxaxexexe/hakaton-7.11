@@ -1,0 +1,11 @@
+[Unit]
+Description=Restore ZAL NAT exception after firewall recreation
+
+[Timer]
+OnBootSec=5s
+OnUnitActiveSec=5s
+AccuracySec=1s
+Unit=zal-nat-allow.service
+
+[Install]
+WantedBy=timers.target

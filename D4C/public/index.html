@@ -1,0 +1,20 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Билет с видом на поле — матчи, сектора и билеты</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script type="importmap">{"imports":{"three":"/vendor/three/build/three.module.js"}}</script></head>
+<body>
+<header>
+  <a class="logo" href="#/">Билет с видом на поле</a>
+  <nav id="menu" aria-label="Разделы"><a href="#/" data-m="home">Матчи</a><a href="#/soon" data-m="soon">Скоро</a><a href="#/reviews" data-m="trailers">Обзоры</a><a href="#/stadiums" data-m="cinemas">Стадионы</a></nav>
+  <form id="search" role="search"><input id="q" type="search" placeholder="Поиск команды" aria-label="Поиск команды" autocomplete="off"><div id="sugg" hidden></div></form>
+  <nav id="nav"></nav>
+  <ol id="steps"></ol>
+</header>
+<main id="app"></main>
+<footer><div><b>Билет с видом на поле</b><small>Покупка билетов на матч с 3D-видом на поле с вашего места. Демо-проект: стадионы и клубы вымышленные, оплата не настоящая.</small></div>
+  <div><a href="#/">Матчи</a><a href="#/soon">Скоро в продаже</a><a href="#/reviews">Обзоры</a><a href="#/stadiums">Стадионы</a></div></footer>
+<div id="trailer" hidden role="dialog" aria-modal="true" aria-label="Обзор"><div class="tbox"><button id="t-close" class="ghost" aria-label="Закрыть обзор">✕ Закрыть обзор</button><div id="t-screen"></div><div id="t-info"></div></div></div>
+<div id="cookie" hidden><span>Сайт использует cookies и localStorage для входа и сохранения реакций. Продолжая, вы соглашаетесь с этим.</span><button class="cta" id="cookie-ok">Согласен</button></div>
+<div id="view" hidden><div id="host"></div><div class="bar"><button id="v-back">← Вернуться к схеме сектора</button><b id="v-title"></b><span id="v-dbg"></span><button id="v-snd" class="ghost">Звук трибун</button><button id="v-buy" class="cta"></button></div><p id="v-note"></p></div>
+<script type="module" src="/js/main.js"></script></body></html>

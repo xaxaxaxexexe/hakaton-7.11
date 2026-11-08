@@ -1,0 +1,1315 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ZAL API contract",
+    "version": "1.0.0",
+    "description": "Общий контракт frontend/backend. Денежные суммы в копейках, кроме входящих полей Platega. Мок — отдельный инструмент разработки."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8000/api/v1",
+      "description": "Local API or mock"
+    },
+    {
+      "url": "/api/v1",
+      "description": "Same origin production"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "getHealth",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/cinemas": {
+      "get": {
+        "operationId": "listCinemas",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Cinema"
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/sessions": {
+      "get": {
+        "operationId": "listSessions",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Session"
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "cinema_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      }
+    },
+    "/sessions/{session_id}": {
+      "get": {
+        "operationId": "getSession",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Session"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      }
+    },
+    "/halls/{hall_id}": {
+      "get": {
+        "operationId": "getHall",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hall"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "hall_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      }
+    },
+    "/sessions/{session_id}/seats": {
+      "get": {
+        "operationId": "getSeatAvailability",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Availability"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      }
+    },
+    "/orders/{order_id}": {
+      "get": {
+        "operationId": "getOrder",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "security": [
+          {
+            "OrderToken": []
+          }
+        ]
+      }
+    },
+    "/orders/{order_id}/ticket": {
+      "get": {
+        "operationId": "getOrderTicket",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticket"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "security": [
+          {
+            "OrderToken": []
+          }
+        ]
+      }
+    },
+    "/tickets/{token}": {
+      "get": {
+        "operationId": "verifyTicket",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticket"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      }
+    },
+    "/orders": {
+      "post": {
+        "operationId": "createOrder",
+        "description": "Создать один заказ и атомарно забронировать место. Один ключ с тем же телом возвращает тот же заказ. Цена берётся из БД.",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 16,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrder"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Создан заказ и платёж",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOrderResponse"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Заказ создан, платёж ещё проверяется",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOrderResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Повтор прежнего запроса",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOrderResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/payments/platega/callback": {
+      "post": {
+        "operationId": "plategaCallback",
+        "description": "Входящий запрос провайдера; подтверждение и сверка на сервере.",
+        "security": [
+          {
+            "MerchantId": [],
+            "MerchantSecret": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Callback"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ack"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/orders/{order_id}/pricing": {
+      "get": {
+        "operationId": "getOrderPricing",
+        "responses": {
+          "200": {
+            "description": "Успешно",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderPriceBreakdown"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "security": [
+          {
+            "OrderToken": []
+          }
+        ],
+        "summary": "Seat price and quoted payment provider fee"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Vector3": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "z": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "x",
+          "y",
+          "z"
+        ],
+        "additionalProperties": false
+      },
+      "Health": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ]
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "mock",
+              "live"
+            ]
+          },
+          "api_version": {
+            "type": "string",
+            "enum": [
+              "1.0.0"
+            ]
+          },
+          "demo_checkout_minor": {
+            "type": "integer",
+            "enum": [
+              0,
+              100
+            ],
+            "description": "0: catalog price; 100: one-ruble demo checkout before provider fee."
+          }
+        },
+        "required": [
+          "status",
+          "mode",
+          "api_version"
+        ],
+        "additionalProperties": false
+      },
+      "Cinema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "address",
+          "timezone"
+        ],
+        "additionalProperties": false
+      },
+      "Movie": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string"
+          },
+          "duration_minutes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "age_rating": {
+            "type": "string"
+          },
+          "poster_url": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "duration_minutes",
+          "age_rating",
+          "poster_url"
+        ],
+        "additionalProperties": false
+      },
+      "Session": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cinema_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "hall_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "movie": {
+            "$ref": "#/components/schemas/Movie"
+          },
+          "starts_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "format": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "RUB"
+            ]
+          },
+          "price_from_minor": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "cinema_id",
+          "hall_id",
+          "movie",
+          "starts_at",
+          "format",
+          "currency",
+          "price_from_minor"
+        ],
+        "additionalProperties": false
+      },
+      "Seat": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "row": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "sofa"
+            ]
+          },
+          "zone": {
+            "type": "string",
+            "enum": [
+              "front",
+              "middle",
+              "sofa"
+            ]
+          },
+          "position": {
+            "$ref": "#/components/schemas/Vector3"
+          },
+          "rotation_y": {
+            "type": "number"
+          },
+          "width": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "depth": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "row",
+          "number",
+          "type",
+          "zone",
+          "position",
+          "rotation_y",
+          "width",
+          "depth"
+        ],
+        "additionalProperties": false
+      },
+      "Hall": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cinema_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string"
+          },
+          "dimensions": {
+            "type": "object",
+            "properties": {
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "depth": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "width",
+              "height",
+              "depth"
+            ],
+            "additionalProperties": false
+          },
+          "screen": {
+            "type": "object",
+            "properties": {
+              "center": {
+                "$ref": "#/components/schemas/Vector3"
+              },
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "center",
+              "width",
+              "height"
+            ],
+            "additionalProperties": false
+          },
+          "camera": {
+            "type": "object",
+            "properties": {
+              "eye_height": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "fov_degrees": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "exclusiveMaximum": 180
+              },
+              "near": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "far": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "eye_height",
+              "fov_degrees",
+              "near",
+              "far"
+            ],
+            "additionalProperties": false
+          },
+          "speakers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "position": {
+                  "$ref": "#/components/schemas/Vector3"
+                }
+              },
+              "required": [
+                "id",
+                "position"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "seats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Seat"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "cinema_id",
+          "name",
+          "dimensions",
+          "screen",
+          "camera",
+          "speakers",
+          "seats"
+        ],
+        "additionalProperties": false
+      },
+      "SeatAvailability": {
+        "type": "object",
+        "properties": {
+          "seat_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "available",
+              "held",
+              "sold"
+            ]
+          },
+          "price_minor": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "RUB"
+            ]
+          }
+        },
+        "required": [
+          "seat_id",
+          "status",
+          "price_minor",
+          "currency"
+        ],
+        "additionalProperties": false
+      },
+      "Availability": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "seats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SeatAvailability"
+            }
+          }
+        },
+        "required": [
+          "session_id",
+          "updated_at",
+          "seats"
+        ],
+        "additionalProperties": false
+      },
+      "Payment": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "mock",
+              "platega"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CREATING",
+              "PENDING",
+              "CONFIRMED",
+              "CANCELED",
+              "EXPIRED",
+              "FAILED",
+              "DISPUTED",
+              "CHARGEBACKED",
+              "PARTIALLY_REFUNDED",
+              "UNKNOWN"
+            ]
+          },
+          "payment_url": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "transaction_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "qr_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Verified bank SBP URI (qr.nspk.ru), only while pending. Null until provider supplies it."
+          }
+        },
+        "required": [
+          "provider",
+          "status",
+          "payment_url",
+          "transaction_id"
+        ],
+        "additionalProperties": false
+      },
+      "Order": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "session_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "seat_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "creating_payment",
+              "pending_payment",
+              "paid",
+              "canceled",
+              "expired",
+              "payment_review",
+              "refunded"
+            ]
+          },
+          "total_minor": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Exact payable amount in kopeks including the customer fee quoted by authenticated provider POST. GET status must match this stored quote. See /pricing for original seat price and fee."
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "RUB"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "payment": {
+            "$ref": "#/components/schemas/Payment"
+          },
+          "ticket_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "session_id",
+          "seat_id",
+          "status",
+          "total_minor",
+          "currency",
+          "created_at",
+          "expires_at",
+          "payment",
+          "ticket_id"
+        ],
+        "additionalProperties": false
+      },
+      "CreateOrder": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "seat_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customer_email": {
+            "type": "string",
+            "format": "email",
+            "maxLength": 254
+          }
+        },
+        "required": [
+          "session_id",
+          "seat_id",
+          "customer_email"
+        ],
+        "additionalProperties": false
+      },
+      "CreateOrderResponse": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "$ref": "#/components/schemas/Order"
+          },
+          "access_token": {
+            "type": "string",
+            "minLength": 32
+          }
+        },
+        "required": [
+          "order",
+          "access_token"
+        ],
+        "additionalProperties": false
+      },
+      "Ticket": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "order_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "film_title": {
+            "type": "string"
+          },
+          "cinema_name": {
+            "type": "string"
+          },
+          "hall_name": {
+            "type": "string"
+          },
+          "starts_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "row": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "seat_type": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "sofa"
+            ]
+          },
+          "paid_minor": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "RUB"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "valid",
+              "suspended",
+              "revoked"
+            ]
+          },
+          "verification_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "issued_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "order_id",
+          "film_title",
+          "cinema_name",
+          "hall_name",
+          "starts_at",
+          "timezone",
+          "row",
+          "number",
+          "seat_type",
+          "paid_minor",
+          "currency",
+          "status",
+          "verification_url",
+          "issued_at"
+        ],
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "retryable": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "code",
+              "message",
+              "retryable"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "additionalProperties": false
+      },
+      "Callback": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "paymentMethod": {
+            "type": "integer"
+          },
+          "payload": {
+            "type": "string"
+          },
+          "refundId": {
+            "type": "string"
+          },
+          "refundStatus": {
+            "type": "string"
+          },
+          "refundedAmount": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "amount",
+          "currency",
+          "status",
+          "paymentMethod",
+          "payload"
+        ],
+        "additionalProperties": true
+      },
+      "Ack": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ok"
+        ],
+        "additionalProperties": false
+      },
+      "OrderPriceBreakdown": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "order_id",
+          "currency",
+          "zero_hidden_fees",
+          "refund_policy_ru",
+          "can_cancel_unpaid_hold",
+          "session_starts_at",
+          "seat_price_minor",
+          "service_fee_minor",
+          "insurance_upsell_minor",
+          "total_minor"
+        ],
+        "properties": {
+          "order_id": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "RUB"
+            ]
+          },
+          "zero_hidden_fees": {
+            "type": "boolean"
+          },
+          "refund_policy_ru": {
+            "type": "string"
+          },
+          "can_cancel_unpaid_hold": {
+            "type": "boolean"
+          },
+          "session_starts_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "seat_price_minor": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "service_fee_minor": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "insurance_upsell_minor": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "total_minor": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "catalog_price_minor": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "demo_discount_minor": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "responses": {
+      "Error": {
+        "description": "Ошибка в общем формате",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "OrderToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Непредсказуемый токен конкретного заказа"
+      },
+      "MerchantId": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-MerchantId"
+      },
+      "MerchantSecret": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Secret"
+      }
+    }
+  }
+}

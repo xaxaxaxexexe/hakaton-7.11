@@ -1,0 +1,74 @@
+.seat-finder { margin-top: 44px; padding-top: 32px; border-top: 1px solid var(--line); color: var(--text); }
+.seat-finder button, .seat-finder select { scroll-margin-block: 110px; }
+.seat-finder-header { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-bottom: 24px; }
+.seat-finder-header h2 { margin: 0 0 7px; font-size: 28px; line-height: 1.2; font-weight: 650; letter-spacing: -.04em; }
+.seat-finder-header p { margin: 0; color: var(--muted); font-size: 15px; }
+.seat-finder-preference { display: flex; align-items: center; gap: 16px; flex: none; font-size: 14px; }
+.seat-finder-preference > span { color: var(--muted); white-space: nowrap; }
+.seat-finder-preference > div { position: relative; }
+.seat-finder-preference select { appearance: none; min-height: 48px; min-width: 210px; padding: 12px 43px 12px 16px; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; font-size: 15px; cursor: pointer; }
+.seat-finder-preference svg { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.seat-finder-results { display: grid; grid-template-columns: 1.05fr 1fr; column-gap: 36px; }
+.seat-finder-option { min-width: 0; padding: 20px 0; }
+.seat-finder-option--primary { grid-row: 1 / 3; display: flex; flex-direction: column; padding: 26px 28px; border-radius: 12px; background: var(--surface); }
+.seat-finder-option:nth-child(2) { padding-top: 6px; border-bottom: 1px solid var(--line); }
+.seat-finder-option:nth-child(3) { padding-bottom: 0; }
+.seat-finder-match { display: flex; align-items: center; gap: 9px; margin: 0 0 22px; color: var(--muted); font-size: 14px; }
+.seat-finder-match > span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.seat-finder-option-title { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; }
+.seat-finder-option-title h3 { margin: 0; font-size: 18px; line-height: 1.35; font-weight: 600; letter-spacing: -.025em; }
+.seat-finder-option-title > strong { flex: none; font-size: 19px; font-weight: 650; letter-spacing: -.03em; white-space: nowrap; }
+.seat-finder-option--primary .seat-finder-option-title { flex-wrap: wrap; gap: 8px 18px; }
+.seat-finder-option--primary h3 { font-size: 25px; }
+.seat-finder-option--primary .seat-finder-option-title > strong { font-size: 25px; }
+.seat-finder-reason { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.seat-finder-explanation { margin: 15px 0 25px; color: var(--text); font-size: 15px; line-height: 1.55; }
+.seat-finder-actions { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+.seat-finder-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 9px 0; border: 0; border-radius: 7px; font-size: 14px; font-weight: 600; line-height: 1.2; cursor: pointer; transition: color .15s, background .15s; }
+.seat-finder-preview { color: var(--text); background: transparent; }
+.seat-finder-select { color: var(--muted); background: transparent; margin-left: auto; }
+.seat-finder-actions .seat-finder-select[aria-pressed=true] { color: var(--text); }
+.seat-finder-actions button:hover { color: var(--accent); }
+.seat-finder-option--primary .seat-finder-actions { margin-top: auto; padding-top: 8px; }
+.seat-finder-option--primary .seat-finder-preview { min-height: 48px; padding: 12px 20px; background: var(--accent); color: #180e0a; font-size: 15px; }
+.seat-finder-option--primary .seat-finder-preview:hover { background: var(--accent-hover); color: #180e0a; }
+.seat-finder-option--primary .seat-finder-select { padding-inline: 10px; font-size: 15px; }
+.seat-finder-actions button:active { transform: translateY(1px); }
+.seat-finder-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 18px; }
+.seat-finder-footer p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.seat-finder-footer button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--text); font-size: 14px; font-weight: 600; }
+.seat-finder-footer button:hover { color: var(--accent); }
+.seat-finder-empty { padding: 28px; background: var(--surface); border-radius: 12px; }
+.seat-finder-empty h3 { margin: 0 0 8px; font-size: 20px; font-weight: 600; }
+.seat-finder-empty p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+@media (max-width: 900px) {
+  .seat-finder-header { align-items: flex-start; }
+  .seat-finder-preference { flex-direction: column; align-items: flex-start; gap: 7px; }
+  .seat-finder-results { gap: 24px; }
+  .seat-finder-option--primary { padding: 24px; }
+  .seat-finder-option--primary h3, .seat-finder-option--primary .seat-finder-option-title > strong { font-size: 23px; }
+  .seat-finder-option--primary .seat-finder-actions { flex-wrap: wrap; gap: 6px 10px; }
+}
+@media (max-width: 640px) {
+  .seat-finder { margin: 30px 6px 0; padding-top: 26px; }
+  .seat-finder-header { display: block; margin-bottom: 20px; }
+  .seat-finder-header h2 { font-size: 25px; }
+  .seat-finder-header p { font-size: 14px; }
+  .seat-finder-preference { margin-top: 22px; gap: 8px; }
+  .seat-finder-preference > div, .seat-finder-preference select { width: 100%; }
+  .seat-finder-preference select { font-size: 16px; min-height: 50px; }
+  .seat-finder-results { display: block; }
+  .seat-finder-option--primary { padding: 23px 20px; margin-bottom: 6px; }
+  .seat-finder-match { margin-bottom: 18px; }
+  .seat-finder-option--primary h3, .seat-finder-option--primary .seat-finder-option-title > strong { font-size: 22px; }
+  .seat-finder-option:nth-child(2), .seat-finder-option:nth-child(3) { padding: 21px 2px 15px; }
+  .seat-finder-option-title h3, .seat-finder-option-title > strong { font-size: 17px; }
+  .seat-finder-explanation { margin-top: 12px; margin-bottom: 17px; font-size: 14px; }
+  .seat-finder-actions { margin-top: 8px; }
+  .seat-finder-option--primary .seat-finder-actions { padding-top: 0; flex-wrap: nowrap; }
+  .seat-finder-option--primary .seat-finder-preview { padding-inline: 14px; }
+  .seat-finder-option--primary .seat-finder-select { padding-inline: 3px; }
+  .seat-finder-footer { margin-top: 7px; padding-top: 13px; border-top: 1px solid var(--line); flex-direction: column-reverse; align-items: flex-start; gap: 8px; }
+  .seat-finder-footer button { width: 100%; justify-content: flex-start; min-height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) { .seat-finder * { transition: none !important; } }

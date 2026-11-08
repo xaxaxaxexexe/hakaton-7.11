@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Арена 3D — билет с видом на поле</title>
+  <link rel="icon" type="image/svg+xml" href="assets/arena-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="arena.css" />
+  <link rel="stylesheet" href="commerce.css" />
+  <link rel="stylesheet" href="account.css" />
+  <link rel="stylesheet" href="walk.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="arena-header">
+      <div class="header-inner"><a class="arena-logo" href="#afisha" aria-label="Арена 3D — матчи"><img src="assets/arena-logo.svg" alt="Арена 3D"></a>
+        <div class="stadium-address"><b>Грозный</b><span>Стадион «Арена 3D» · демо</span></div>
+        <button id="accountButton" class="account-button">Войти / Регистрация</button>
+      </div>
+    </header>
+    <nav class="arena-nav" aria-label="Разделы"><div>
+      <button class="active" data-page="afisha">Матчи</button><button data-page="seances">Расписание</button>
+      <a href="#contacts">Контакты</a><span class="nav-feature">Вид на поле с любого места <i>3D</i></span>
+    </div></nav>
+    <main>
+      <section id="scheduleView" class="schedule-view">
+        <div class="calendar-strip"><div id="scheduleDates" aria-label="Дата матча"></div><button id="refreshSchedule" aria-label="Обновить расписание">↻ Обновить</button></div>
+        <div class="schedule-heading"><div><h1 id="scheduleTitle">Матчи</h1><p id="scheduleCount"></p></div><label class="film-search"><span>⌕</span><input id="filmSearch" type="search" placeholder="Найти команду" aria-label="Найти команду"></label></div>
+        <div class="schedule-info"><p id="scheduleStatus" role="status"></p><span>Время — Грозный (МСК)</span></div>
+        <div class="tour-banner"><div class="tour-icon" aria-hidden="true">3D</div><div><b>Ваш поход на матч начинается здесь</b><p>Пройдите через фуд-корт к своему сектору, сядьте на любое место и посмотрите, как оттуда видно поле.</p></div><span>7 секторов · вид на поле в 3D</span></div>
+        <div class="schedule-filters"><button class="active" data-filter="all">Все матчи</button><button data-filter="premiere">Главные матчи</button><button data-filter="for_kids">Семейные</button><label>Сектор <select id="hallFilter" aria-label="Фильтр по сектору"><option value="">Все сектора</option></select></label></div>
+        <div id="movieList" class="movie-list"></div><div id="scheduleEmpty" hidden><h2>Матчей не найдено</h2><p>Попробуйте другое название команды или сбросьте фильтры.</p><button id="resetFilters">Сбросить фильтры</button></div>
+      </section>
+      <div id="hallView" hidden>
+        <div class="hall-back"><button id="backSchedule">← К расписанию</button><span>Матч / Выбор места / Вид на поле в 3D</span></div>
+      <section class="movie-bar">
+        <img class="movie-poster" id="selectedPoster" alt="">
+        <div class="movie-info"><div class="eyebrow" id="selectedDate"></div><h1 id="selectedTitle"></h1><p id="selectedMeta"></p></div>
+        <div class="session-picker"><span>Начало</span><strong id="selectedTime"></strong><small id="selectedHall"></small></div>
+      </section>
+
+      <section class="workspace" id="seats">
+        <p class="demo-note">3D-макет сектора. Стадион, клубы, матчи и занятость мест демонстрационные, оплата тестовая.</p><div class="section-heading"><div><div class="eyebrow">Схема сектора</div><h2>Выберите точку обзора</h2></div><div class="legend"><span><i class="dot available"></i>Свободно</span><span><i class="dot selected"></i>Ваш выбор</span><span><i class="dot taken"></i>Занято</span></div></div>
+        <div class="seat-layout">
+          <div class="map-card">
+            <div class="screen-wrap"><div class="screen-glow"></div><div class="screen">ПОЛЕ</div></div>
+            <div class="seat-map" id="seatMap"></div>
+            <div class="map-footer"><span>Ряд 1</span><span>Ряд 8</span></div>
+          </div>
+          <aside class="view-card">
+            <div class="view-top"><span class="eyebrow">Вид с места</span><span class="quality-pill"><span class="quality-dot"></span><span id="qualityLabel">Отличный</span></span></div>
+            <div class="theater-view"><div class="view-screen"></div><div class="view-aisle"></div><div class="view-seat"></div><div class="view-caption"><b id="placeTitle">Ряд 5, место 12</b><span id="placeDescription">Центр трибуны · поле почти целиком</span></div></div>
+            <button class="walk-button" id="walkBtn">Сесть и посмотреть на поле · 3D</button><p id="walkError" role="status" hidden></p><div class="view-stats"><div><span>Обзор</span><b id="qualityScore">94/100</b></div><div><span>До центра поля</span><b id="distance">48 м</b></div><div><span>Угол</span><b id="angle">0°</b></div></div>
+            <div class="recommendation"><span class="spark">✦</span><p><b>Мы рекомендуем</b><br>Середина сектора — поле видно почти целиком.</p></div>
+            <div class="checkout"><div><span>Цена в секторе</span><strong id="total"></strong></div><a id="officialBooking" href="#seats">Купить билет</a></div><p class="booking-note">Сядьте на место в 3D и нажмите «Начать → к оплате».</p>
+          </aside>
+        </div>
+      </section>
+      </div>
+    </main>
+    <footer id="contacts" class="arena-footer"><img src="assets/arena-logo.svg" alt="Арена 3D"><div><b>Арена 3D · билет с видом на поле</b><p>Учебный проект для хакатона. Стадион, клубы и матчи вымышленные.</p></div><div><b>Перед покупкой</b><p>Ворота стадиона открываются за 1,5 часа до начала матча.</p></div></footer>
+  </div>
+  <section class="walk-mode" id="walkMode" role="dialog" aria-modal="true" aria-label="Вид с трибуны" hidden>
+    <canvas id="walkCanvas" tabindex="0" aria-label="3D-стадион. WASD — ходьба, мышь — осмотр, E — действие, сесть или встать."></canvas>
+    <div class="walk-top">
+      <button id="closeWalk">← К схеме зала</button>
+      <div class="walk-title"><span id="walkCinema">Арена 3D / 3D-макет</span><b id="walkPlace">Свободная прогулка</b></div>
+      <div class="walk-tools"><button id="toLobby" hidden>В коридор</button><button id="centerView">К моему сектору</button><button id="mouseLook">Управлять мышью</button><button id="walkSound" aria-pressed="false">Звук выключен</button><button id="walkHelp" aria-label="Подсказка по управлению">Как гулять</button><button id="walkBag">Мой заказ · 0 ₽</button></div>
+    </div>
+    <div class="walk-crosshair" aria-hidden="true"></div>
+    <div class="walk-prompt"><span id="walkState">Вы стоите</span><p id="seatHint" aria-live="polite">Подойдите к свободному месту</p><button id="interactSeat" disabled>Сесть · E</button></div>
+    <div id="walkNotice" role="status" hidden></div>
+    <aside class="walk-minimap"><div class="mini-heading"><b id="miniCaption">Ваш сектор выделен</b><button id="toggleMiniMap" aria-expanded="true" aria-controls="miniMapContent">Свернуть</button></div><div id="miniMapContent"><canvas id="miniMap" width="360" height="420" role="img" aria-label="План стадиона и ваше положение"></canvas><div class="mini-legend"><span><i class="mini-you"></i>Вы</span><span><i class="mini-selected"></i><span id="miniSelected">Ваш сектор</span></span></div></div></aside>
+    <div class="walk-bottom">
+      <div class="move-pad" aria-label="Ходьба: удерживайте кнопку">
+        <button data-walk="forward" aria-label="Идти вперёд">↑</button>
+        <button data-walk="left" aria-label="Идти влево">←</button>
+        <button data-walk="back" aria-label="Идти назад">↓</button>
+        <button data-walk="right" aria-label="Идти вправо">→</button>
+      </div>
+      <div class="walk-help"><p><kbd>W A S D</kbd> ходить <kbd>Shift</kbd> быстрее <kbd>E</kbd> сесть / встать</p><span>Мышь с зажатой кнопкой — осмотр · Esc — отпустить мышь</span></div>
+      <div class="walk-choice"><span id="walkChoice"></span><button id="returnToSeat">К выбранному месту</button><button class="buy-walk" id="walkBuy">Выбрать это место</button></div>
+    </div>
+    <div id="walkIntro" class="walk-intro" hidden>
+      <section class="walk-intro-card" role="dialog" aria-modal="true" aria-labelledby="walkIntroTitle" aria-describedby="walkIntroText">
+        <span class="intro-eyebrow">АРЕНА 3D · ВИД С ТРИБУНЫ</span>
+        <h2 id="walkIntroTitle">Почувствуйте себя на матче</h2>
+        <p id="walkIntroText">Загляните на фуд-корт, найдите свой сектор на плане и посмотрите на поле с выбранного места.</p>
+        <ul><li><b>Двигайтесь</b><span>WASD или стрелки на экране</span></li><li><b>Осмотритесь</b><span>Тяните сцену мышью или пальцем</span></li><li><b>Войдите и сядьте</b><span>Кнопка действия или клавиша E</span></li></ul>
+        <p class="intro-audio">Звуки стадиона включаются после взаимодействия. Кнопка звука всегда в верхней панели.</p>
+        <button id="startWalk">Начать прогулку</button>
+      </section>
+    </div>
+  </section>
+  <dialog id="commerceDialog" class="commerce-dialog" aria-labelledby="commerceTitle"><div id="commerceBody"></div></dialog>
+  <dialog id="accountDialog" class="account-dialog" aria-labelledby="accountTitle"><form id="accountForm"><button type="button" id="closeAccount" class="account-close" aria-label="Закрыть">×</button><h2 id="accountTitle">Войти</h2><p>Ваш аккаунт сохранится между посещениями.</p><label>Электронная почта<input id="accountEmail" type="email" autocomplete="email" required></label><label>Пароль<input id="accountPassword" type="password" autocomplete="current-password" minlength="10" required></label><p id="accountError" role="alert" hidden></p><button id="accountSubmit" type="submit">Войти</button><button id="accountToggle" type="button">Создать аккаунт</button></form></dialog>
+  <script src="vendor/three.min.js"></script>
+  <script src="hall-model.js"></script>
+  <script src="hall-scene.js"></script>
+  <script src="lobby.js"></script>
+  <script src="stadium-audio.js"></script>
+  <script src="catalog.js"></script>
+    <script src="schedule-data.js"></script>
+  <script src="app.js"></script>
+  <script src="schedule.js"></script>
+  <script src="walk.js"></script>
+  <script src="commerce.js"></script>
+  <script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.stadium-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  isolation: isolate;
+  overflow: hidden;
+}
+.stadium-scene__canvas { position: absolute; inset: 0; }
+.stadium-scene__canvas canvas { display: block; width: 100%; height: 100%; }
+.stadium-scene__canvas canvas:focus-visible { outline: 2px solid #ff704b; outline-offset: -3px; }
+.stadium-scene__seat-tooltip {
+  position: absolute;
+  z-index: 2;
+  padding: 9px 12px;
+  color: #f8f4eb;
+  background: rgba(13, 17, 22, 0.92);
+  border: 1px solid rgba(233, 226, 209, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 5px 22px #0006;
+  font-size: 11px;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.stadium-scene__seat-tooltip[hidden] { display: none; }
+.stadium-scene__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #171713;
+  text-align: center;
+}
+.stadium-scene__fallback svg { width: min(240px, 60%); margin-bottom: 1.5rem; }
+.stadium-scene__fallback p { margin: 0 0 0.5rem; font-size: 1rem; color: #f6f3e9; }
+.stadium-scene__fallback span { max-width: 32ch; color: #aaa89c; font-size: 0.875rem; line-height: 1.5; }

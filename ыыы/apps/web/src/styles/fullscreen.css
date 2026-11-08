@@ -1,0 +1,71 @@
+.fullscreen-button { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-width:44px; min-height:44px; padding:10px 13px; border:1px solid var(--line); border-radius:8px; color:var(--text); background:var(--surface); font:inherit; font-size:12px; font-weight:600; cursor:pointer; flex:none; }
+.fullscreen-button:hover { border-color:var(--muted); }
+.fullscreen-button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.fullscreen-button:disabled { opacity:.6; cursor:wait; }
+.hall-panel-actions, .preview-header-actions { display:flex; align-items:center; gap:9px; flex:none; }
+.session-v2 .hall-panel.is-fullscreen { position:fixed; inset:0; z-index:1000; width:100vw; height:100dvh; max-width:none; max-height:none; margin:0; border:0; border-radius:0; display:flex; flex-direction:column; overflow:hidden; background:var(--surface); padding-top:env(safe-area-inset-top); }
+.session-v2 .hall-panel.is-fullscreen .hall-panel-head { flex:none; padding:12px max(18px, env(safe-area-inset-right)) 12px max(18px, env(safe-area-inset-left)); }
+.session-v2 .hall-panel.is-fullscreen .interactive-hall { flex:1; height:auto; min-height:0; max-height:none; }
+.session-v2 .hall-panel.is-fullscreen .cinema-scene { min-height:0; }
+.session-v2 .hall-panel.is-fullscreen .price-tiers { flex:none; padding-block:10px; }
+.session-v2 .hall-panel.is-fullscreen .seat-map-shell { flex:1; min-height:0; overflow:auto; }
+.fullscreen-seat-bar { display:flex; align-items:center; justify-content:space-between; gap:16px; flex:none; min-height:64px; padding:10px max(20px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); background:var(--surface); color:var(--text); border-top:1px solid var(--line); }
+.fullscreen-seat-bar > div { display:flex; align-items:baseline; gap:14px; font-size:14px; }
+.fullscreen-seat-bar > div > span, .fullscreen-seat-bar > p { color:var(--muted); font-size:13px; margin:0; }
+.fullscreen-seat-bar .button { min-height:44px; font-size:12px; padding:10px 16px; }
+.media-preview.is-fullscreen { position:fixed; inset:0; width:100vw; height:100dvh; max-width:none; max-height:none; margin:0; border:0; border-radius:0; padding:0; overflow:hidden; }
+.preview-fullscreen-shell { min-width:0; }
+.preview-fullscreen-shell.is-fullscreen { position:fixed; inset:0; width:100vw; height:100dvh; z-index:1001; display:flex; flex-direction:column; overflow:auto; overscroll-behavior:contain; background:var(--surface); color:var(--text); padding-top:env(safe-area-inset-top); padding-bottom:env(safe-area-inset-bottom); }
+.media-preview.is-fullscreen .preview-header { flex:none; position:sticky; top:0; z-index:5; background:var(--surface); padding:12px 20px; }
+.media-preview.is-fullscreen .preview-header .eyebrow { display:none; }
+.media-preview.is-fullscreen .preview-header h2 { font-size:22px; margin:0; }
+.media-preview.is-fullscreen .preview-seat-navigator, .media-preview.is-fullscreen .preview-listening-switch { flex:none; padding-block:9px; }
+.media-preview.is-fullscreen .preview-scenes { flex:1; min-height:260px; }
+.media-preview.is-fullscreen .preview-panel { min-height:0; display:flex; flex-direction:column; }
+.media-preview.is-fullscreen .preview-canvas-wrap { height:auto; flex:1; min-height:190px; }
+.media-preview.is-fullscreen .cinema-scene { min-height:0; }
+.media-preview.is-fullscreen .preview-panel-info { flex:none; padding:12px 20px; }
+.media-preview.is-fullscreen .cinema-media-controls { flex:none; padding:10px 20px; }
+.media-preview.is-fullscreen .cinema-media-heading, .media-preview.is-fullscreen .cinema-media-listening, .media-preview.is-fullscreen .cinema-media-sample { display:none; }
+.media-preview.is-fullscreen .cinema-media-timeline { margin:0 0 3px; }
+.media-preview.is-fullscreen .cinema-media-credit { margin-top:5px; }
+.media-preview.is-fullscreen .preview-footer { display:none; }
+.media-preview.is-fullscreen .cinema-media-volume { flex-basis:auto; margin-top:0; }
+.media-preview.is-fullscreen .cinema-media-transport { flex-wrap:nowrap; }
+@media(max-width:700px) {
+  .fullscreen-button { padding:10px; }
+  .fullscreen-button span { display:none; }
+  .hall-panel-actions, .preview-header-actions { gap:6px; }
+  .session-v2 .hall-panel-head { gap:8px; }
+  .session-v2 .hall-panel-head h2 { font-size:13px; }
+  .session-v2 .hall-mode-toggle button { padding-inline:7px; }
+  .session-v2 .hall-panel.is-fullscreen .hall-panel-head { padding:9px 12px; }
+  .session-v2 .hall-panel.is-fullscreen .price-tiers { display:none; }
+  .fullscreen-seat-bar { padding-inline:14px; gap:12px; }
+  .fullscreen-seat-bar > div { flex-direction:column; gap:4px; font-size:13px; }
+  .fullscreen-seat-bar > div > span { font-size:12px; }
+  .fullscreen-seat-bar .button { font-size:11px; padding-inline:12px; }
+  .media-preview.is-fullscreen .preview-header { padding:10px 13px; gap:10px; }
+  .media-preview.is-fullscreen .preview-header h2 { font-size:18px; }
+  .media-preview.is-fullscreen .preview-header-actions { gap:5px; }
+  .media-preview.is-fullscreen .cinema-media-controls { padding:8px 13px; }
+  .media-preview.is-fullscreen .cinema-media-volume { gap:0; }
+  .media-preview.is-fullscreen .cinema-media-volume input { width:64px; }
+  .media-preview.is-fullscreen .cinema-media-volume > span { display:none; }
+  .media-preview.is-fullscreen .cinema-media-play { flex:1; }
+  .media-preview.is-fullscreen .cinema-media-play > span { font-size:10px; }
+  .media-preview.is-fullscreen.preview-dialog--compare .preview-scenes { flex:none; height:calc(100dvh - 80px); min-height:640px; }
+}
+@media(max-height:550px) and (min-width:600px) {
+  .media-preview.is-fullscreen .preview-header { padding-block:6px; }
+  .media-preview.is-fullscreen .preview-header h2 { font-size:18px; }
+  .media-preview.is-fullscreen .preview-seat-navigator, .media-preview.is-fullscreen .preview-listening-switch { padding-block:5px; }
+  .media-preview.is-fullscreen .preview-panel-info { padding:7px 16px; }
+  .media-preview.is-fullscreen.preview-dialog--compare .preview-panel-info { flex-direction:row; align-items:center; flex-wrap:nowrap; gap:8px; min-height:42px; padding:6px 10px; }
+  .media-preview.is-fullscreen.preview-dialog--compare .preview-panel-info p, .media-preview.is-fullscreen.preview-dialog--compare .preview-listen-button { display:none; }
+  .media-preview.is-fullscreen.preview-dialog--compare .preview-panel-actions { width:auto; margin-left:auto; }
+  .media-preview.is-fullscreen.preview-dialog--compare .preview-panel-actions .button { min-height:32px; padding:6px 9px; font-size:9px; }
+  .media-preview.is-fullscreen .preview-scenes { min-height:180px; }
+  .media-preview.is-fullscreen .preview-canvas-wrap { min-height:140px; }
+  .media-preview.is-fullscreen .cinema-media-credit { display:none; }
+}

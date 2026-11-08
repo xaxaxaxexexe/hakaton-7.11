@@ -1,0 +1,62 @@
+/* Stadium-specific pieces: crests, sector map and the pitch strip above the seat map. */
+.crests { display: inline-flex; align-items: center; gap: 8px; }
+.crests i { font-size: 12px; font-style: normal; color: var(--muted); }
+.crest { display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 50% 50% 46% 46%; background: var(--crest); color: #fff; font-weight: 800; font-size: 13px; letter-spacing: .02em; text-shadow: 0 1px 2px #0008; box-shadow: inset 0 0 0 2px #ffffff40; }
+.match-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.match-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--panel); transition: transform .2s, border-color .2s; }
+.match-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.match-card-art { display: grid !important; place-items: center; aspect-ratio: auto !important; height: 112px; background: repeating-linear-gradient(90deg, #1d5a31 0 28px, #236839 28px 56px); }
+.match-card-art .crest { width: 58px; height: 58px; font-size: 15px; }
+.match-card-art .crests i { color: #fff; }
+.match-card-details { display: flex; flex-direction: column; gap: 7px; padding: 16px; }
+.match-card-details small { color: var(--muted); font-size: 11px; letter-spacing: .06em; }
+.match-card-details strong { font-size: 18px; line-height: 1.25; }
+.match-card-details > span { color: var(--muted); font-size: 13px; }
+.match-card-details b { color: var(--accent-soft); font-size: 13px; margin-top: 4px; }
+.spotlight-crests, .match-hero-crests { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.spotlight-crests .crest, .match-hero-crests .crest { width: 92px; height: 92px; font-size: 24px; }
+.catalog-filters { flex-wrap: wrap; }
+.fixture-card { display: flex; width: 100%; align-items: center; gap: 12px; padding: 10px 12px; margin-bottom: 8px; border: 1px solid var(--line); border-radius: 12px; color: var(--text); text-align: left; }
+.fixture-card .crest { width: 30px; height: 30px; font-size: 9px; }
+.fixture-card .crests { gap: 3px; flex: none; }
+.fixture-card .crests i { display: none; }
+.fixture-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.fixture-text strong { font-size: 14px; }
+.fixture-text small { color: var(--muted); font-size: 12px; }
+.fixture-list { max-height: 300px; overflow-y: auto; }
+.match-weather { min-height: 18px; margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+.stadium-map { display: block; width: 100%; max-width: 420px; margin: 8px auto 0; }
+.map-pitch { fill: #1f6b39; stroke: #e8f0ea; stroke-width: .5; }
+.map-line { fill: none; stroke: #e8f0ea; stroke-width: .4; }
+.map-sector { cursor: pointer; outline: none; }
+.map-sector rect { fill: #33413a; stroke: #6d7d73; stroke-width: .4; transition: fill .15s; }
+.map-sector text { fill: #e8f0ea; font-size: 5.5px; font-weight: 800; text-anchor: middle; pointer-events: none; }
+.map-sector.fan rect { stroke: #f2c94c; stroke-width: .8; }
+.map-sector:hover rect, .map-sector:focus-visible rect { fill: #3f6a51; }
+.map-sector.selected rect { fill: var(--accent); stroke: #fff; }
+.sector-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.sector-chip { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; min-width: 76px; padding: 7px 11px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--text); }
+.sector-chip b { font-size: 15px; }
+.sector-chip small { color: var(--muted); font-size: 11px; white-space: nowrap; }
+.sector-chip.active { border-color: var(--accent); background: #1fb35a2e; }
+.field-strip { position: relative; height: 54px; margin-bottom: 16px; border: 2px solid #eef3ee; border-radius: 6px; background: repeating-linear-gradient(90deg, #1d5a31 0 7%, #236839 7% 14%); }
+.field-strip::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 2px solid #eef3ee; }
+.field-strip span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 2px 8px; background: #1d5a31; color: #eef3ee; font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+.seat-map { overflow-x: auto; padding-bottom: 4px; }
+.seat-row { flex-wrap: nowrap; }
+.seat.box { flex: 2.28 0 auto; width: auto; min-width: 40px; }
+.price-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-top: 10px; color: var(--muted); font-size: 13px; }
+.price-legend b { color: var(--text); }
+.view-insight-facts span { white-space: nowrap; }
+.seat-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sound-button small { display: block; }
+#sound-level { margin-top: 3px; color: var(--accent-soft); }
+@media (max-width: 520px) {
+  .match-grid { grid-template-columns: 1fr; }
+  .seat { min-width: 0; }
+  .sector-chip { min-width: 62px; }
+}
+.stand-area { justify-content: flex-start; align-items: stretch; margin: 0; }
+.field-strip { width: min(100%, 560px); align-self: center; }
+.fixture-card:hover { transform: none !important; }
+.selection-panel { min-width: 0; }

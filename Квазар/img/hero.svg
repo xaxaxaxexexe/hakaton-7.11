@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#070d16"/><stop offset="1" stop-color="#0f2a1b"/></linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#fffbe8" stop-opacity=".9"/><stop offset="1" stop-color="#fffbe8" stop-opacity="0"/></radialGradient>
+<pattern id="crowd" width="10" height="9" patternUnits="userSpaceOnUse"><rect width="10" height="9" fill="#141c18"/><circle cx="3" cy="4" r="2.2" fill="#1fa35a"/><circle cx="8" cy="5" r="2.2" fill="#f4f4f0" opacity=".8"/></pattern>
+<pattern id="grass" width="64" height="10" patternUnits="userSpaceOnUse"><rect width="32" height="10" fill="#2f8a45"/><rect x="32" width="32" height="10" fill="#2a7e3f"/></pattern></defs>
+<rect width="640" height="420" fill="url(#sky)"/>
+<circle cx="70" cy="40" r="60" fill="url(#glow)"/><circle cx="570" cy="40" r="60" fill="url(#glow)"/>
+<rect x="56" y="34" width="28" height="12" rx="2" fill="#fffbe8"/><rect x="556" y="34" width="28" height="12" rx="2" fill="#fffbe8"/>
+<path d="M68 46v120M572 46v120" stroke="#2b3430" stroke-width="5"/>
+<path d="M0 120 L640 120 L640 210 L0 210 Z" fill="url(#crowd)"/>
+<rect y="112" width="640" height="8" fill="#101a14"/><rect x="20" y="114" width="600" height="3" fill="#fffbe8" opacity=".9"/>
+<rect y="206" width="640" height="10" fill="#0b120e"/><rect x="40" y="207" width="560" height="7" fill="#1c8a4c"/>
+<path d="M90 216 L550 216 L640 420 L0 420 Z" fill="url(#grass)"/>
+<g fill="none" stroke="#f4f7f2" stroke-width="2.5" opacity=".9"><path d="M110 226 L530 226 L612 410 L28 410 Z"/><path d="M320 226 L320 410"/><ellipse cx="320" cy="300" rx="70" ry="26"/></g>
+<g><rect x="250" y="262" width="7" height="20" rx="2" fill="#1fa35a"/><rect x="380" y="290" width="8" height="22" rx="2" fill="#f4f4f0"/><rect x="200" y="320" width="9" height="26" rx="2" fill="#1fa35a"/><rect x="430" y="250" width="6" height="18" rx="2" fill="#f4f4f0"/><circle cx="330" cy="304" r="4" fill="#fff"/></g>
+</svg>

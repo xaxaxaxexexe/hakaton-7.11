@@ -1,0 +1,121 @@
+:root { --purple:#0d4a2c; --orange:#16a34a; --paper:#fff; --ink:#202020; --muted:#797780; }
+body { background:#fff; color:#202020; }
+.app-shell { background:#fff; max-width:none; }
+.arena-header { background:#0d4a2c; color:#fff; }
+.header-inner { max-width:1256px; padding:20px 32px; margin:auto; min-height:112px; display:flex; align-items:center; gap:40px; }
+.arena-logo img { width:164px; height:76px; object-fit:contain; display:block; }
+.stadium-address { display:grid; gap:5px; font-size:13px; color:#d7f7e6; }
+.stadium-address b { font-size:17px; color:#fff; }
+.ticket-help { margin-left:auto; font-size:12px; color:#dcf5e8; text-decoration:none; }
+.official-link { background:#16a34a; color:#fff; text-decoration:none; font-size:12px; padding:12px 18px; border-radius:24px; white-space:nowrap; }
+.arena-nav { border-bottom:1px solid #e9e8eb; background:#fff; }
+.arena-nav > div { max-width:1256px; padding:0 32px; margin:auto; display:flex; align-items:center; gap:30px; }
+.arena-nav button, .arena-nav a { padding:20px 0 17px; border:0; background:transparent; border-bottom:3px solid transparent; font:500 14px Manrope,sans-serif; color:#222925; text-decoration:none; white-space:nowrap; cursor:pointer; }
+.arena-nav .active { border-color:#16a34a; }
+.nav-feature { margin-left:auto; display:flex; gap:8px; align-items:center; font-size:11px; color:#65796e; }
+.nav-feature i { font-style:normal; background:#eafbf2; color:#0d4a2c; border-radius:5px; padding:4px 6px; font-weight:800; }
+.schedule-view { max-width:1256px; padding:0 32px 64px; margin:auto; }
+.calendar-strip { padding:18px 0; display:flex; justify-content:space-between; gap:14px; align-items:center; border-bottom:1px solid #eaeeec; }
+#scheduleDates { display:flex; gap:8px; overflow:auto; }
+#scheduleDates button { border:0; background:#f1f4f2; color:#333; padding:10px 19px; border-radius:24px; cursor:pointer; font:600 13px Manrope,sans-serif; white-space:nowrap; }
+#scheduleDates button.active { background:#16a34a; color:#fff; }
+#scheduleDates small { margin-left:8px; font-weight:400; opacity:.8; }
+#refreshSchedule { border:0; background:transparent; color:#627c6e; font:500 12px Manrope,sans-serif; cursor:pointer; white-space:nowrap; }
+#refreshSchedule:disabled { cursor:wait; opacity:.55; }
+.schedule-heading { display:flex; justify-content:space-between; align-items:center; gap:20px; padding-top:28px; }
+.schedule-heading h1 { margin:0; font-size:36px; letter-spacing:-1.2px; line-height:1.15; }
+#scheduleCount { margin:9px 0 0; color:#716a78; font-size:13px; }
+.film-search { display:flex; align-items:center; gap:10px; border:1px solid #dfe6e2; border-radius:8px; padding:10px 14px; }
+.film-search span { font-size:25px; color:#81968b; line-height:1; }
+.film-search input { border:0; outline:0; font:13px Manrope,sans-serif; color:#202020; background:transparent; min-width:210px; }
+.schedule-info { display:flex; justify-content:space-between; gap:15px; color:#89828f; font-size:10px; padding:15px 0 20px; }
+.schedule-info p { margin:0; }
+.tour-banner { display:flex; align-items:center; gap:16px; background:#f0fbf5; border:1px solid #dff4e9; border-radius:10px; padding:19px 22px; }
+.tour-icon { color:#fff; background:#0d4a2c; width:48px; height:48px; border-radius:10px; display:grid; place-items:center; font-size:20px; font-weight:800; }
+.tour-banner b { font-size:16px; color:#185d38; }
+.tour-banner p { font-size:12px; color:#688f7a; margin:5px 0 0; }
+.tour-banner > span { margin-left:auto; font-size:12px; color:#0d4a2c; white-space:nowrap; }
+.schedule-filters { display:flex; gap:9px; align-items:center; padding:24px 0; }
+.schedule-filters > button { border:1px solid #e3ebe5; background:white; color:#706778; border-radius:6px; padding:8px 13px; font:12px Manrope,sans-serif; cursor:pointer; }
+.schedule-filters > button.active { color:#0d4a2c; background:#eef9f3; border-color:#b9e5ce; }
+.schedule-filters label { margin-left:auto; font-size:12px; color:#928a99; display:flex; align-items:center; gap:10px; }
+.schedule-filters select { padding:8px 13px; border:1px solid #e3ebe5; border-radius:6px; background:#fff; color:#485f53; font:12px Manrope,sans-serif; }
+.movie-list { display:grid; grid-template-columns:1fr 1fr; column-gap:34px; }
+.film-card { display:flex; gap:20px; padding:24px 0 28px; border-bottom:1px solid #e8edea; }
+.film-poster { width:124px; height:180px; object-fit:cover; border-radius:6px; background:#f0f6f3; flex-shrink:0; }
+.film-content { min-width:0; }
+.film-badges { display:flex; gap:5px; flex-wrap:wrap; }
+.film-badges span { padding:3px 7px; border-radius:3px; background:#16a34a; color:#fff; font-size:10px; }
+.film-content h2 { margin:8px 0 7px; font-size:21px; font-weight:700; letter-spacing:-.6px; line-height:1.25; }
+.film-genres { margin:0 0 17px; font-size:11px; line-height:1.8; color:#8b858e; }
+.film-genres > span { display:inline-block; background:#f0f3f1; border-radius:4px; padding:1px 5px; color:#79717f; margin-right:5px; }
+.showtimes { display:flex; gap:12px 8px; flex-wrap:wrap; }
+.showtime { padding:0; border:0; background:none; min-width:80px; font-family:Manrope,sans-serif; cursor:pointer; text-align:center; }
+.showtime b { display:block; background:#16a34a; border:1px solid #16a34a; border-radius:5px 5px 0 0; color:#fff; padding:6px 10px; font-size:17px; line-height:1.2; }
+.showtime > span { display:block; border:1px solid #16a34a; border-radius:0 0 3px 3px; border-top:0; font-size:9px; color:#8d8593; line-height:1.6; padding:1px 3px; }
+.showtime em { font-style:normal; color:#485a50; }
+.showtime small { display:block; padding-top:4px; color:#8b8294; font-size:9px; }
+.showtime:hover b { background:#12803c; border-color:#12803c; }
+.film-details { display:inline-block; margin-top:13px; font-size:10px; color:#7b9889; text-decoration:none; }
+.chronological { display:block; }
+.session-row { display:flex; align-items:center; gap:22px; padding:20px 0; border-bottom:1px solid #eaf2ee; }
+.session-clock { font-size:23px; font-weight:750; color:#0d4a2c; width:76px; }
+.session-row img { width:45px; height:64px; border-radius:4px; object-fit:cover; }
+.session-film { flex:1; }
+.session-film h2 { margin:0 0 6px; font-size:18px; line-height:1.3; }
+.session-film p { font-size:11px; color:#827689; margin:0; }
+.session-facts { display:grid; gap:6px; font-size:12px; color:#617c6e; min-width:130px; }
+.session-facts b { color:#32453b; }
+.session-open, #resetFilters { background:#16a34a; color:white; border:0; padding:12px 16px; border-radius:6px; font:600 12px Manrope,sans-serif; cursor:pointer; }
+#scheduleEmpty { padding:50px 0; text-align:center; color:#6d8679; }
+.arena-footer { background:#f3f7f5; border-top:1px solid #dfeee6; padding:42px max(32px,calc((100vw - 1192px)/2)); display:grid; grid-template-columns:180px 1fr 1fr; gap:32px; color:#607b6d; font:12px/1.7 Manrope,sans-serif; }
+.arena-footer img { width:145px; }
+.arena-footer b { font-size:14px; color:#284b38; }
+.arena-footer a { color:#5c9778; }
+#hallView { max-width:1256px; margin:auto; }
+.hall-back { padding:25px 32px 0; display:flex; align-items:center; gap:25px; font-size:11px; color:#8fa99a; }
+.hall-back button { border:0; background:#f0f7f2; color:#0d4a2c; border-radius:5px; padding:9px 14px; cursor:pointer; }
+.movie-bar { padding:25px 32px; border-color:#e7efeb; }
+.movie-poster { object-fit:cover; border-radius:5px; background:#eff5f2; padding:0; }
+.movie-info h1 { font-size:26px; }
+.movie-info p,.session-picker small,.session-picker span { color:#869d91; }
+.session-picker { border-color:#dce9e2; }
+.session-picker strong { color:#0d4a2c; }
+.workspace { padding:24px 32px 50px; }
+.demo-note { color:#628f77; background:#f0faf5; border-radius:7px; padding:13px 17px; font-size:12px; line-height:1.6; margin:0 0 26px; }
+.section-heading h2 { color:#224130; font-size:30px; letter-spacing:-1px; }
+.eyebrow { color:#8aa798; text-transform:none; font-family:Manrope,sans-serif; letter-spacing:0; }
+.legend { color:#7c9588; }
+.legend .available { background:#6b8879; }
+.legend .taken { background:#d5e4dc; }
+.map-card { background:#f6faf8; border:1px solid #e2eee6; border-radius:10px; }
+.view-card { background:#fff; border:1px solid #e2eee6; border-radius:10px; }
+.screen { background:#609378; color:#fff; }
+.screen-glow { background:radial-gradient(ellipse,#a878d428,transparent 68%); }
+.seat { background:#85ae98; }
+.seat.taken { background:#dce8e2; }
+.seat:hover { background:#418360; }
+.seat.selected { background:#16a34a; }
+.row-label,.map-footer { color:#8cad9b; }
+.quality-pill { color:#0d4a2c; border-color:#d9eee3; }
+.quality-dot { background:#45946a; }
+.view-stats,.view-stats div,.checkout { border-color:#e7f2ec; }
+.view-stats span,.checkout span { color:#849f91; }
+.view-stats b,.checkout strong { color:#0d4a2c; }
+.recommendation { color:#859f91; }
+.checkout { align-items:center; gap:10px; }
+.checkout strong { font-size:23px; white-space:nowrap; }
+.checkout a { background:#16a34a; color:#fff; padding:13px; border-radius:5px; text-decoration:none; font-size:12px; font-weight:700; white-space:nowrap; }
+.booking-note { font-size:10px; color:#8ca497; line-height:1.5; margin-bottom:0; }
+.theater-view { border-radius:6px; color:#fff; }
+.view-caption { color:#fff; }
+.walk-button { color:#fff; border-color:#16a34a; border-radius:5px; }
+.walk-button:hover { background:#98d900; color:#fff; }
+.walk-mode .walk-prompt button { color:#141517; }
+@media(min-width:901px) { #hallView .seat-layout { grid-template-columns:minmax(0,1fr) 340px; } }
+@media(max-width:1000px) { .nav-feature { display:none; } .header-inner { gap:24px; } .ticket-help { display:none; } .official-link { margin-left:auto; } .movie-list { column-gap:24px; } .film-poster { width:92px; height:138px; } .film-card { gap:14px; } .film-content h2 { font-size:19px; } .tour-banner > span { display:none; } .seat-layout { grid-template-columns:1fr; } }
+@media(max-width:720px) { .header-inner { padding:15px 20px; min-height:94px; } .arena-logo img { width:130px; height:62px; } .stadium-address { display:none; } .official-link { font-size:10px; padding:10px 14px; } .arena-nav > div { padding:0 20px; gap:24px; overflow:auto; } .arena-nav a,.arena-nav button { font-size:12px; padding:15px 0 12px; } .schedule-view { padding:0 20px 40px; } .schedule-heading { align-items:flex-start; flex-direction:column; gap:16px; } .schedule-heading h1 { font-size:30px; } .film-search { width:100%; } .film-search input { width:100%; min-width:0; } .schedule-info { line-height:1.5; } .schedule-info > span { display:none; } .movie-list { grid-template-columns:1fr; } .tour-banner { padding:15px; gap:12px; } .tour-banner b { font-size:13px; } .tour-banner p { font-size:11px; } .tour-icon { flex-shrink:0; width:40px; height:40px; font-size:17px; } .schedule-filters { flex-wrap:wrap; gap:6px; padding-bottom:10px; } .schedule-filters > button { font-size:11px; padding:7px 10px; } .schedule-filters label { width:100%; margin:9px 0 0; } .film-card { gap:16px; } .film-poster { width:90px; height:134px; } .film-content h2 { font-size:20px; } .film-genres { font-size:10px; } .showtime { min-width:74px; } .arena-footer { padding:30px 20px; grid-template-columns:1fr; gap:20px; } .session-row { gap:12px; flex-wrap:wrap; } .session-clock { width:65px; font-size:20px; } .session-row img { display:none; } .session-film h2 { font-size:16px; } .session-film { min-width:calc(100% - 80px); } .session-facts { margin-left:77px; min-width:0; flex:1; } .session-open { padding:10px; font-size:11px; } .movie-bar { padding:20px; } .movie-info h1 { font-size:20px; } .workspace { padding:20px; } .hall-back { padding:20px 20px 0; } .hall-back > span { display:none; } .section-heading h2 { font-size:26px; } }
+
+/* Стадион: превью вида с места и подсветка «поля» над схемой */
+.view-screen { background: linear-gradient(90deg, transparent calc(50% - 1px), rgba(255,255,255,.7) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)), repeating-linear-gradient(90deg, #2a7e3f 0 18px, #2f8a45 18px 36px) !important; box-shadow: inset 0 0 0 2px rgba(255,255,255,.55) !important; }
+.screen-glow { background: radial-gradient(closest-side, rgba(46,160,90,.22), transparent) !important; }

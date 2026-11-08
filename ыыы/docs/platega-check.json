@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-11-07T08:29:42.119627+00:00",
+  "method": "GET",
+  "endpoint": "https://app.platega.io/balance/all",
+  "creates_payment": false,
+  "http_status": 200,
+  "credentials_accepted": true,
+  "response_json": true
+}
